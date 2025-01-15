@@ -20,6 +20,8 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.dog_live.WebSocket.NetworkManager
+import com.example.dog_live.WebSocket.RetrofitClient
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.File
 
@@ -36,15 +38,21 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
     @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("SetTextI18n", "MissingInflatedId", "WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+
         setContentView(R.layout.activity_main)
 
-        val file = File(filesDir,"data.json")
+        val file = File(filesDir,"datas.json")
         if (!file.exists())
             file.createNewFile()
+
+
 
         val userPhotoView: ImageView = findViewById(R.id.imageView_userPhoto)
         userPhotoView.setImageResource(R.drawable.img_empty_photo)
